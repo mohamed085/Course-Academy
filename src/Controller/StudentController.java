@@ -1,8 +1,23 @@
 package Controller;
 
+import Model.Student;
+import Services.StudentServices;
+import ServicesImp.StudentServicesImp;
+
 import java.util.Scanner;
 
 public class StudentController {
+    StudentServices studentServices;
+    Student student;
+    Scanner input=new Scanner(System.in);
+
+
+    public void deleteStudent(){
+        studentServices=new StudentServicesImp();
+        System.out.print("Enter username : ");
+        String username=input.nextLine();
+        studentServices.deleteStudent(username);
+    }
 
 
 
@@ -15,6 +30,7 @@ public class StudentController {
         while(c!=0) {
             while (c != 0) {
 
+                System.out.print("Please Enter 7 to delete student \n");
 
 
                 System.out.println("Please Enter 0 to exist\n");
@@ -25,6 +41,9 @@ public class StudentController {
                     case 0:
                         System.exit(0);
 
+                    case 7:
+                        studentController.deleteStudent();
+                        break;
 
 
                     default:
