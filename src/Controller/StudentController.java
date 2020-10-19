@@ -1,9 +1,22 @@
 package Controller;
 
+import Model.Student;
+import Services.StudentServices;
+import ServicesImp.StudentServicesImp;
+
 import java.util.Scanner;
 
 public class StudentController {
 
+    StudentServices studentServices;
+    Student student;
+    Scanner input=new Scanner(System.in);
+
+
+    public void displayAllStudent(){
+        studentServices=new StudentServicesImp();
+        studentServices.displayAllStudent();
+    }
 
 
 
@@ -15,6 +28,7 @@ public class StudentController {
         while(c!=0) {
             while (c != 0) {
 
+                System.out.print("Please Enter 8 to display all student \n");
 
 
                 System.out.println("Please Enter 0 to exist\n");
@@ -25,6 +39,9 @@ public class StudentController {
                     case 0:
                         System.exit(0);
 
+                    case 8:
+                        studentController.displayAllStudent();
+                        break;
 
 
                     default:
