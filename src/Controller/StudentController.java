@@ -32,6 +32,7 @@ public class StudentController {
         System.out.print("Add registerDate : ");
         studentServices.updateStudent(username,student);
     }
+
     
     public void updateStudentName(){
         studentServices=new StudentServicesImp();
