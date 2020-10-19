@@ -1,0 +1,556 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dataSource name="courseacademy@localhost">
+  <database-model serializer="dbm" dbms="MYSQL" family-id="MYSQL" format-version="4.19">
+    <root id="1">
+      <ServerVersion>5.0.51</ServerVersion>
+      <DefaultCasing>lower/lower</DefaultCasing>
+    </root>
+    <schema id="2" parent="1" name="bank"/>
+    <schema id="3" parent="1" name="courseacademy">
+      <Current>1</Current>
+    </schema>
+    <schema id="4" parent="1" name="ex1"/>
+    <schema id="5" parent="1" name="information_schema"/>
+    <schema id="6" parent="1" name="mysql"/>
+    <schema id="7" parent="1" name="test"/>
+    <table id="8" parent="3" name="admin"/>
+    <table id="9" parent="3" name="comment"/>
+    <table id="10" parent="3" name="course"/>
+    <table id="11" parent="3" name="coursecategory"/>
+    <table id="12" parent="3" name="enroll"/>
+    <table id="13" parent="3" name="instructor"/>
+    <table id="14" parent="3" name="like"/>
+    <table id="15" parent="3" name="message"/>
+    <table id="16" parent="3" name="notification"/>
+    <table id="17" parent="3" name="post"/>
+    <table id="18" parent="3" name="student"/>
+    <column id="19" parent="8" name="adminID">
+      <Position>1</Position>
+      <DataType>INT(10) UNSIGNED|4s</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>null</SequenceIdentity>
+    </column>
+    <column id="20" parent="8" name="username">
+      <Position>2</Position>
+      <DataType>VARCHAR(45)|12s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="21" parent="8" name="password">
+      <Position>3</Position>
+      <DataType>VARCHAR(45)|12s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <index id="22" parent="8" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>adminID</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <key id="23" parent="8" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>adminID</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="24" parent="9" name="commentID">
+      <Position>1</Position>
+      <DataType>INT(10) UNSIGNED|4s</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>null</SequenceIdentity>
+    </column>
+    <column id="25" parent="9" name="content">
+      <Position>2</Position>
+      <DataType>VARCHAR(45)|12s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="26" parent="9" name="date">
+      <Position>3</Position>
+      <DataType>TIMESTAMP(19)|93s</DataType>
+      <NotNull>1</NotNull>
+      <DefaultExpression>CURRENT_TIMESTAMP</DefaultExpression>
+    </column>
+    <column id="27" parent="9" name="postID">
+      <Position>4</Position>
+      <DataType>INT(10) UNSIGNED|4s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="28" parent="9" name="studentID">
+      <Position>5</Position>
+      <DataType>INT(10) UNSIGNED|4s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <index id="29" parent="9" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>commentID</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <index id="30" parent="9" name="FK_Comment_1">
+      <ColNames>postID</ColNames>
+    </index>
+    <index id="31" parent="9" name="FK_Comment_2">
+      <ColNames>studentID</ColNames>
+    </index>
+    <key id="32" parent="9" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>commentID</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="33" parent="9" name="FK_Comment_1">
+      <ColNames>postID</ColNames>
+      <RefTableName>post</RefTableName>
+      <RefKeyName>PRIMARY</RefKeyName>
+      <RefColNames>postID</RefColNames>
+    </foreign-key>
+    <foreign-key id="34" parent="9" name="FK_Comment_2">
+      <ColNames>studentID</ColNames>
+      <RefTableName>student</RefTableName>
+      <RefKeyName>PRIMARY</RefKeyName>
+      <RefColNames>studentID</RefColNames>
+    </foreign-key>
+    <column id="35" parent="10" name="courseID">
+      <Position>1</Position>
+      <DataType>INT(10) UNSIGNED|4s</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>null</SequenceIdentity>
+    </column>
+    <column id="36" parent="10" name="courseName">
+      <Position>2</Position>
+      <DataType>VARCHAR(45)|12s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="37" parent="10" name="cost">
+      <Position>3</Position>
+      <DataType>DOUBLE(22)|8s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="38" parent="10" name="rate">
+      <Position>4</Position>
+      <DataType>INT(10) UNSIGNED|4s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="39" parent="10" name="maxNumberOfStudent">
+      <Position>5</Position>
+      <DataType>INT(10) UNSIGNED|4s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="40" parent="10" name="deadline">
+      <Position>6</Position>
+      <DataType>TIMESTAMP(19)|93s</DataType>
+      <NotNull>1</NotNull>
+      <DefaultExpression>CURRENT_TIMESTAMP</DefaultExpression>
+    </column>
+    <column id="41" parent="10" name="content">
+      <Position>7</Position>
+      <DataType>VARCHAR(45)|12s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="42" parent="10" name="instructorID">
+      <Position>8</Position>
+      <DataType>INT(10) UNSIGNED|4s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="43" parent="10" name="categoryID">
+      <Position>9</Position>
+      <DataType>INT(10) UNSIGNED|4s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="44" parent="10" name="available">
+      <Position>10</Position>
+      <DataType>VARCHAR(45)|12s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <index id="45" parent="10" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>courseID</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <index id="46" parent="10" name="FK_course_2">
+      <ColNames>instructorID</ColNames>
+    </index>
+    <index id="47" parent="10" name="FK_course_1">
+      <ColNames>categoryID</ColNames>
+    </index>
+    <key id="48" parent="10" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>courseID</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="49" parent="10" name="FK_course_2">
+      <ColNames>instructorID</ColNames>
+      <RefTableName>instructor</RefTableName>
+      <RefKeyName>PRIMARY</RefKeyName>
+      <RefColNames>instructorID</RefColNames>
+    </foreign-key>
+    <foreign-key id="50" parent="10" name="FK_course_1">
+      <ColNames>categoryID</ColNames>
+      <RefTableName>coursecategory</RefTableName>
+      <RefKeyName>PRIMARY</RefKeyName>
+      <RefColNames>categoryID</RefColNames>
+    </foreign-key>
+    <column id="51" parent="11" name="categoryID">
+      <Position>1</Position>
+      <DataType>INT(10) UNSIGNED|4s</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>null</SequenceIdentity>
+    </column>
+    <column id="52" parent="11" name="category">
+      <Position>2</Position>
+      <DataType>VARCHAR(45)|12s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <index id="53" parent="11" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>categoryID</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <key id="54" parent="11" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>categoryID</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="55" parent="12" name="enrollID">
+      <Position>1</Position>
+      <DataType>INT(10) UNSIGNED|4s</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>null</SequenceIdentity>
+    </column>
+    <column id="56" parent="12" name="courseID">
+      <Position>2</Position>
+      <DataType>INT(10) UNSIGNED|4s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="57" parent="12" name="studentID">
+      <Position>3</Position>
+      <DataType>INT(10) UNSIGNED|4s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="58" parent="12" name="status">
+      <Position>4</Position>
+      <DataType>VARCHAR(45)|12s</DataType>
+      <NotNull>1</NotNull>
+      <DefaultExpression>&apos;inprogress&apos;</DefaultExpression>
+    </column>
+    <column id="59" parent="12" name="enrollDate">
+      <Position>5</Position>
+      <DataType>TIMESTAMP(19)|93s</DataType>
+      <NotNull>1</NotNull>
+      <DefaultExpression>CURRENT_TIMESTAMP</DefaultExpression>
+    </column>
+    <column id="60" parent="12" name="approvel">
+      <Position>6</Position>
+      <DataType>VARCHAR(45)|12s</DataType>
+      <NotNull>1</NotNull>
+      <DefaultExpression>&apos;wait response&apos;</DefaultExpression>
+    </column>
+    <column id="61" parent="12" name="rate">
+      <Position>7</Position>
+      <DataType>DOUBLE(22)|8s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <index id="62" parent="12" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>enrollID</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <index id="63" parent="12" name="FK_Enroll_1">
+      <ColNames>courseID</ColNames>
+    </index>
+    <index id="64" parent="12" name="FK_enroll_2">
+      <ColNames>studentID</ColNames>
+    </index>
+    <key id="65" parent="12" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>enrollID</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="66" parent="12" name="FK_Enroll_1">
+      <ColNames>courseID</ColNames>
+      <RefTableName>course</RefTableName>
+      <RefKeyName>PRIMARY</RefKeyName>
+      <RefColNames>courseID</RefColNames>
+    </foreign-key>
+    <foreign-key id="67" parent="12" name="FK_enroll_2">
+      <ColNames>studentID</ColNames>
+      <RefTableName>student</RefTableName>
+      <RefKeyName>PRIMARY</RefKeyName>
+      <RefColNames>studentID</RefColNames>
+    </foreign-key>
+    <column id="68" parent="13" name="instructorID">
+      <Position>1</Position>
+      <DataType>INT(10) UNSIGNED|4s</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>null</SequenceIdentity>
+    </column>
+    <column id="69" parent="13" name="username">
+      <Position>2</Position>
+      <DataType>VARCHAR(45)|12s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="70" parent="13" name="password">
+      <Position>3</Position>
+      <DataType>VARCHAR(45)|12s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="71" parent="13" name="name">
+      <Position>4</Position>
+      <DataType>VARCHAR(45)|12s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="72" parent="13" name="mail">
+      <Position>5</Position>
+      <DataType>VARCHAR(45)|12s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="73" parent="13" name="phone">
+      <Position>6</Position>
+      <DataType>VARCHAR(45)|12s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <index id="74" parent="13" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>instructorID</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <key id="75" parent="13" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>instructorID</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="76" parent="14" name="likeID">
+      <Position>1</Position>
+      <DataType>INT(10) UNSIGNED|4s</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>null</SequenceIdentity>
+    </column>
+    <column id="77" parent="14" name="count">
+      <Position>2</Position>
+      <DataType>INT(10) UNSIGNED|4s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="78" parent="14" name="date">
+      <Position>3</Position>
+      <DataType>TIMESTAMP(19)|93s</DataType>
+      <NotNull>1</NotNull>
+      <DefaultExpression>CURRENT_TIMESTAMP</DefaultExpression>
+    </column>
+    <column id="79" parent="14" name="postID">
+      <Position>4</Position>
+      <DataType>INT(10) UNSIGNED|4s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="80" parent="14" name="studentID">
+      <Position>5</Position>
+      <DataType>INT(10) UNSIGNED|4s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <index id="81" parent="14" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>likeID</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <index id="82" parent="14" name="FK_Like_2">
+      <ColNames>postID</ColNames>
+    </index>
+    <index id="83" parent="14" name="FK_Like_1">
+      <ColNames>studentID</ColNames>
+    </index>
+    <key id="84" parent="14" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>likeID</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="85" parent="14" name="FK_Like_2">
+      <ColNames>postID</ColNames>
+      <RefTableName>post</RefTableName>
+      <RefKeyName>PRIMARY</RefKeyName>
+      <RefColNames>postID</RefColNames>
+    </foreign-key>
+    <foreign-key id="86" parent="14" name="FK_Like_1">
+      <ColNames>studentID</ColNames>
+      <RefTableName>student</RefTableName>
+      <RefKeyName>PRIMARY</RefKeyName>
+      <RefColNames>studentID</RefColNames>
+    </foreign-key>
+    <column id="87" parent="15" name="messageID">
+      <Position>1</Position>
+      <DataType>INT(10) UNSIGNED|4s</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>null</SequenceIdentity>
+    </column>
+    <column id="88" parent="15" name="content">
+      <Position>2</Position>
+      <DataType>VARCHAR(45)|12s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="89" parent="15" name="date">
+      <Position>3</Position>
+      <DataType>TIMESTAMP(19)|93s</DataType>
+      <NotNull>1</NotNull>
+      <DefaultExpression>CURRENT_TIMESTAMP</DefaultExpression>
+    </column>
+    <column id="90" parent="15" name="studentID">
+      <Position>4</Position>
+      <DataType>INT(10) UNSIGNED|4s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="91" parent="15" name="instructorID">
+      <Position>5</Position>
+      <DataType>INT(10) UNSIGNED|4s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <index id="92" parent="15" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>messageID</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <index id="93" parent="15" name="FK_Message_2">
+      <ColNames>studentID</ColNames>
+    </index>
+    <index id="94" parent="15" name="FK_Message_1">
+      <ColNames>instructorID</ColNames>
+    </index>
+    <key id="95" parent="15" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>messageID</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="96" parent="15" name="FK_Message_2">
+      <ColNames>studentID</ColNames>
+      <RefTableName>student</RefTableName>
+      <RefKeyName>PRIMARY</RefKeyName>
+      <RefColNames>studentID</RefColNames>
+    </foreign-key>
+    <foreign-key id="97" parent="15" name="FK_Message_1">
+      <ColNames>instructorID</ColNames>
+      <RefTableName>instructor</RefTableName>
+      <RefKeyName>PRIMARY</RefKeyName>
+      <RefColNames>instructorID</RefColNames>
+    </foreign-key>
+    <column id="98" parent="16" name="notificationID">
+      <Position>1</Position>
+      <DataType>INT(10) UNSIGNED|4s</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>null</SequenceIdentity>
+    </column>
+    <column id="99" parent="16" name="content">
+      <Position>2</Position>
+      <DataType>VARCHAR(45)|12s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="100" parent="16" name="adminID">
+      <Position>3</Position>
+      <DataType>INT(10) UNSIGNED|4s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <index id="101" parent="16" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>notificationID</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <index id="102" parent="16" name="FK_Notification_1">
+      <ColNames>adminID</ColNames>
+    </index>
+    <key id="103" parent="16" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>notificationID</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="104" parent="16" name="FK_Notification_1">
+      <ColNames>adminID</ColNames>
+      <RefTableName>admin</RefTableName>
+      <RefKeyName>PRIMARY</RefKeyName>
+      <RefColNames>adminID</RefColNames>
+    </foreign-key>
+    <column id="105" parent="17" name="postID">
+      <Position>1</Position>
+      <DataType>INT(10) UNSIGNED|4s</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>null</SequenceIdentity>
+    </column>
+    <column id="106" parent="17" name="content">
+      <Position>2</Position>
+      <DataType>VARCHAR(45)|12s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="107" parent="17" name="date">
+      <Position>3</Position>
+      <DataType>TIMESTAMP(19)|93s</DataType>
+      <NotNull>1</NotNull>
+      <DefaultExpression>CURRENT_TIMESTAMP</DefaultExpression>
+    </column>
+    <column id="108" parent="17" name="studentID">
+      <Position>4</Position>
+      <DataType>INT(10) UNSIGNED|4s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <index id="109" parent="17" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>postID</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <index id="110" parent="17" name="FK_Post_1">
+      <ColNames>studentID</ColNames>
+    </index>
+    <key id="111" parent="17" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>postID</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="112" parent="17" name="FK_Post_1">
+      <ColNames>studentID</ColNames>
+      <RefTableName>student</RefTableName>
+      <RefKeyName>PRIMARY</RefKeyName>
+      <RefColNames>studentID</RefColNames>
+    </foreign-key>
+    <column id="113" parent="18" name="studentID">
+      <Position>1</Position>
+      <DataType>INT(10) UNSIGNED|4s</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>null</SequenceIdentity>
+    </column>
+    <column id="114" parent="18" name="username">
+      <Position>2</Position>
+      <DataType>VARCHAR(45)|12s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="115" parent="18" name="password">
+      <Position>3</Position>
+      <DataType>VARCHAR(45)|12s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="116" parent="18" name="name">
+      <Position>4</Position>
+      <DataType>VARCHAR(45)|12s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="117" parent="18" name="mail">
+      <Position>5</Position>
+      <DataType>VARCHAR(45)|12s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="118" parent="18" name="phone">
+      <Position>6</Position>
+      <DataType>VARCHAR(45)|12s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="119" parent="18" name="balance">
+      <Position>7</Position>
+      <DataType>DOUBLE(22)|8s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="120" parent="18" name="registerDate">
+      <Position>8</Position>
+      <DataType>TIMESTAMP(19)|93s</DataType>
+      <NotNull>1</NotNull>
+      <DefaultExpression>CURRENT_TIMESTAMP</DefaultExpression>
+    </column>
+    <index id="121" parent="18" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>studentID</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <key id="122" parent="18" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>studentID</ColNames>
+      <Primary>1</Primary>
+    </key>
+  </database-model>
+</dataSource>
