@@ -12,4 +12,7 @@ public interface StudentServices {
     public void deleteStudent(String username);
     public void addStudent(Student student);
 
+
+    public void displayAllStudent();
+
 }

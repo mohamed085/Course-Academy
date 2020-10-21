@@ -95,6 +95,11 @@ public class StudentController {
         studentServices.addStudent(student);
     }
 
+    public void displayAllStudent(){
+        studentServices=new StudentServicesImp();
+        studentServices.displayAllStudent();
+    }
+
 
 
 
@@ -114,6 +119,7 @@ public class StudentController {
                 System.out.print("Please Enter 5 to update student mail\n");
                 System.out.print("Please Enter 6 to update student phone\n");
 
+                System.out.print("Please Enter 8 to display all student \n");
 
 
                 System.out.println("Please Enter 0 to exist\n");
@@ -138,6 +144,9 @@ public class StudentController {
                         break;
                     case 6:
                         studentController.updateStudentPhone();
+                        break;
+                    case 8:
+                        studentController.displayAllStudent();
                         break;
 
 
