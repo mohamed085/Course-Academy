@@ -20,6 +20,24 @@ public class StudentController {
     }
 
 
+    public void addStudent(){
+        student = new Student();
+        studentServices=new StudentServicesImp();
+        System.out.print("Add username : ");
+        student.setUsername(input.nextLine());
+        System.out.print("Add password : ");
+        student.setPassword(input.nextLine());
+        System.out.print("Add name : ");
+        student.setName(input.nextLine());
+        System.out.print("Add mail : ");
+        student.setMail(input.nextLine());
+        System.out.print("Add phone : ");
+        student.setPhone(input.nextLine());
+        System.out.print("Add balance : ");
+        student.setBalance(input.nextDouble());
+        studentServices.addStudent(student);
+    }
+
 
 
 
@@ -31,6 +49,7 @@ public class StudentController {
             while (c != 0) {
 
                 System.out.print("Please Enter 7 to delete student \n");
+                System.out.print("Please Enter 1 to add new student\n");
 
 
                 System.out.println("Please Enter 0 to exist\n");
@@ -40,12 +59,12 @@ public class StudentController {
                 switch (c) {
                     case 0:
                         System.exit(0);
-
+                    case 1:
+                        studentController.addStudent();
+                        break;
                     case 7:
                         studentController.deleteStudent();
                         break;
-
-
                     default:
                         System.out.println("Your choice wrong");
                         return;
