@@ -1,9 +1,34 @@
 package Controller;
 
+import Model.Student;
+import Services.StudentServices;
+import ServicesImp.StudentServicesImp;
+
 import java.util.Scanner;
 
 public class StudentController {
 
+    StudentServices studentServices;
+    Student student;
+    Scanner input=new Scanner(System.in);
+
+    public void addStudent(){
+        student = new Student();
+        studentServices=new StudentServicesImp();
+        System.out.print("Add username : ");
+        student.setUsername(input.nextLine());
+        System.out.print("Add password : ");
+        student.setPassword(input.nextLine());
+        System.out.print("Add name : ");
+        student.setName(input.nextLine());
+        System.out.print("Add mail : ");
+        student.setMail(input.nextLine());
+        System.out.print("Add phone : ");
+        student.setPhone(input.nextLine());
+        System.out.print("Add balance : ");
+        student.setBalance(input.nextDouble());
+        studentServices.addStudent(student);
+    }
 
 
 
@@ -14,7 +39,7 @@ public class StudentController {
         Scanner input=new Scanner(System.in);
         while(c!=0) {
             while (c != 0) {
-
+                System.out.print("Please Enter 1 to add new student\n");
 
 
                 System.out.println("Please Enter 0 to exist\n");
@@ -24,6 +49,9 @@ public class StudentController {
                 switch (c) {
                     case 0:
                         System.exit(0);
+                    case 1:
+                        studentController.addStudent();
+                        break;
 
 
 
