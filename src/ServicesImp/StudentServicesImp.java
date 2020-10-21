@@ -50,7 +50,6 @@ public class StudentServicesImp implements StudentServices {
         studentDAO.updateStudentPhone(username, newPhone);
     }
 
-    StudentDAO studentDAO;
 
     @Override
     public void displayAllStudent() {
